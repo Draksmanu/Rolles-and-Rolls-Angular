@@ -1,8 +1,7 @@
-<hello name="{{ name }}"></hello>
 <h2>Liste des personnages :</h2>
 <ul>
   <li *ngFor="let character of characters">
-    <a class="character" href="character/{{character.id}}">{{character.firstname}} {{character.lastname}}</a>
+    <a class="character" routerLink="/character/{{character.id}}">{{character.firstname}} {{character.lastname}}</a>
   </li>
 </ul>
 <!--<h2>Bestiaire :</h2>

@@ -1,18 +1,14 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, Injectable, VERSION } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
-import { CharacterDetailComponent } from './character.component';
 
-const routes: Routes = [ { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'character', component: CharacterDetailComponent }];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['../css/sf.component.css']
 })
-export class AppRoutingModule {}
 export class AppComponent {
   name = 'Rolles and Rolls';
   characters = Characters;
@@ -180,8 +176,10 @@ export const Species: Specie[] = [
   }
 ];
 
-function getCharacter(id: number): Observable<Character> {
-  const hero = Characters.find(c => c.id === id) as Character;
-  this.messageService.add(`Fetched character id=${id}`);
-  return of(hero);
+@Injectable({ providedIn: 'root' })
+export class AppService {
+  getCharacter(id: number): Observable<Character> {
+    const hero = Characters.find(c => c.id === id) as Character;
+    return of(hero);
+  }
 }

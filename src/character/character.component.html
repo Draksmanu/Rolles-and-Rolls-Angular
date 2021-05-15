@@ -1,0 +1,15 @@
+<h1 class="characterName {{character.sexe}}">{{character.firstname}} {{character.lastname}}</h1>
+
+<ul class="characterStatistiques">
+  <li *ngFor="let statistique of character.statistiques" class="statistique {{statistique.name}}">{{statistique.name}}
+    {{statistique.value}}
+    <label class="bonusStatistique"></label>
+  </li>
+</ul>
+
+<div class="history"></div>
+
+
+<div class="inventory"></div>
+
+<div class="equipement"></div>

@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Character } from './app.component';
-
-import { AppComponent } from './app.component';
+import { AppService, Character } from '../app/app.component';
 
 @Component({
   selector: 'my-app',
   templateUrl: './character.component.html',
-  styleUrls: ['./sf.component.css']
+  styleUrls: ['../css/sf.component.css']
 })
 export class CharacterDetailComponent implements OnInit {
   character: Character;
 
   constructor(
     private route: ActivatedRoute,
-    private appService: AppComponent,
+    private appService: AppService,
     private location: Location
   ) {}
 
